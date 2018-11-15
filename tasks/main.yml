@@ -9,6 +9,14 @@
 
 - name: Install configuration file
   copy:
-    src: "{{ openvpn_client_config }}"
+    src: "{{ openvpn_client_config_path }}"
     dest: /etc/openvpn/client.conf
   notify: restart openvpn
+  when: openvpn_client_config_path is defined
+
+- name: Install configuration file from data
+  copy:
+    content: "{{ openvpn_client_config }}"
+    dest: /etc/openvpn/client.conf
+  notify: restart openvpn
+  when: openvpn_client_config is defined
