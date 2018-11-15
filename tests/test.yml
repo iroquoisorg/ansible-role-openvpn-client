@@ -2,6 +2,6 @@
 - hosts: localhost
   remote_user: root
   vars:
-    openvpn_client_config: "openvpn-dummy-config.ovpn"
+    openvpn_client_config_path: "openvpn-dummy-config.ovpn"
   roles:
     - ansible-role-openvpn-client
